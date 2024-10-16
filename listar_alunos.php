@@ -1,67 +1,45 @@
 <?php
-// Incluir a classe Produto
-require_once 'produto.php';
 
-// Instanciar a classe Produto
-$produto = new Produto();
+include 'db.php";
 
-// Listar os produtos
-$produtos = $produto->listarProdutos();
+$query $pdo query("SELECT FROM alunos"); Salunos ?> $query->fetchAll(PDO:: FETCH_ASSOC);
 
-?>
+<h2>Lista de Alunos/h2>
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Produtos</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        table, th, td {
-            border: 1px solid black;
-        }
-        th, td {
-            padding: 10px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
-</head>
-<body>
-    <h1>Lista de Produtos</h1>
+<a href="adicionar_aluno.php">Adicionar Novo Aluno/a>
 
-    <?php if (count($produtos) > 0): ?>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Descrição</th>
-                    <th>Preço</th>
-                    <th>Quantidade</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($produtos as $produto): ?>
-                    <tr>
-                        <td><?php echo htmlspecialchars($produto['id']); ?></td>
-                        <td><?php echo htmlspecialchars($produto['nome']); ?></td>
-                        <td><?php echo htmlspecialchars($produto['descricao']); ?></td>
-                        <td><?php echo htmlspecialchars(number_format($produto['preco'], 2, ',', '.')); ?></td>
-                        <td><?php echo htmlspecialchars($produto['quantidade']); ?></td>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
-    <?php else: ?>
-        <p>Nenhum produto encontrado.</p>
-    <?php endif; ?>
-</body>
-</html>
+<table border="1">
+
+<tr>
+
+<th>ID</th>
+
+<th>Nome/tho
+
+<th>Email</th>
+
+<th>Ações</th>
+
+</tr>
+
+<?php foreach ($alunos as $aluno): ?>
+
+<tr>
+
+<td><?php echo $aluno['id']; ?></td>
+
+<td><?php echo $aluno['nome']; ?></td>
+
+<td><?php echo $aluno['email']; ?></td>
+
+<td>
+
+<a href="editar_aluno.php?id=<?php echo $aluno['id']; ?>">Editar</a>
+
+<a href="excluir_aluno.php?id=<?php echo $aluno['id']; ?>">Excluir</a> </td>
+
+</tr>
+
+<?php end foreach; ?>
+
+</table>
