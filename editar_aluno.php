@@ -1,4 +1,5 @@
-<?php include db.php";
+<?php 
+include db.php";
 
 $10 $ GETE id :
 
