@@ -1,4 +1,5 @@
-<?php include do.php
+<?php 
+include do.php
 
 if ($SERVER['REQUEST METHOD'POST') {
 
